@@ -21,7 +21,7 @@ struct Person: Equatable {
     
     static func getPersons() -> [Person] {
         var persons: [Person] = []
-        for _ in 1...10 {
+        for _ in 1...data.names.count {
             let person = Person(
                 name: getRandomElement(from: data.names),
                 surname: getRandomElement(from: data.surnames),
