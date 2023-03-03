@@ -38,8 +38,7 @@ extension DetailContactsViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let indexPath = section
-        return contacts[indexPath].fullName
+        contacts[section].fullName
     }
     
 }
