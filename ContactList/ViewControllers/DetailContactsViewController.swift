@@ -20,13 +20,9 @@ extension DetailContactsViewController {
         var content = cell.defaultContentConfiguration()
         let contact = contacts[indexPath.section]
         
-        if indexPath.row == 1 {
-            content.text = contact.email
-            content.image = UIImage(systemName: "tray")
-        } else {
-            content.text = contact.phone
-            content.image = UIImage(systemName: "phone")
-        }
+        content.text = indexPath.row == 1 ? contact.email : contact.phone
+        content.image = indexPath.row == 1 ? UIImage(systemName: "tray") : UIImage(systemName: "phone")
+
         cell.contentConfiguration = content
         
         return cell

@@ -68,9 +68,9 @@
 			children = (
 				ADBE9FDA29B086FB00CDFFAA /* ViewControllers */,
 				ADBE9FD929B086E300CDFFAA /* Storyboards */,
-				ADBE9FCD29B086B900CDFFAA /* Assets.xcassets */,
 				ADBE9FDD29B0872D00CDFFAA /* Models */,
 				ADBE9FE029B087FB00CDFFAA /* Services */,
+				ADBE9FCD29B086B900CDFFAA /* Assets.xcassets */,
 				ADBE9FD829B086D500CDFFAA /* App */,
 			);
 			path = ContactList;
