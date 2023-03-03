@@ -7,7 +7,7 @@
 
 import Foundation
 
-var data = DataStore.getData()
+
 
 struct Person: Equatable {
     let name: String
@@ -20,7 +20,9 @@ struct Person: Equatable {
     }
     
     static func getPersons() -> [Person] {
+        let data = DataStore()
         var persons: [Person] = []
+        
         for _ in 1...data.names.count {
             let person = Person(
                 name: getRandomElement(from: data.names),
@@ -29,17 +31,20 @@ struct Person: Equatable {
                 email: getRandomElement(from: data.emails)
             )
             persons.append(person)
-            
+
             data.names.removeAll { $0.hasPrefix(person.name) }
             data.surnames.removeAll { $0.hasPrefix(person.surname) }
             data.phones.removeAll { $0.hasPrefix(person.phone) }
             data.emails.removeAll { $0.hasPrefix(person.email) }
         }
+        
+        func getRandomElement(from elements: [String]) -> String {
+            let randomElement = elements.randomElement()
+            return randomElement ?? ""
+        }
+        
         return persons
     }
 }
 
-func getRandomElement(from elements: [String]) -> String {
-    let randomElement = elements.randomElement()
-    return randomElement ?? ""
-}
+

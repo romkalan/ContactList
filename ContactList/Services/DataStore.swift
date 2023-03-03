@@ -56,9 +56,5 @@ class DataStore {
         "sss.mail.ru",
         "uuu.mail.ru"
     ]
-    
-    class func getData() -> DataStore {
-        DataStore()
-    }
 }
 
