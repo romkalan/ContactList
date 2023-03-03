@@ -11,10 +11,6 @@ final class ContactsViewController: UITableViewController {
 
     var contacts: [Person]!
     
-    override func viewDidLoad() {
-        navigationItem.title = "Person list"
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let personVC = segue.destination as? PersonInfoViewController
         personVC?.person = sender as? Person
