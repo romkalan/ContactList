@@ -8,6 +8,8 @@
 import UIKit
 
 class DataStore {
+    static let shared = DataStore()
+    
     var names: [String] = [
         "Alex",
         "Jerry",
@@ -56,5 +58,7 @@ class DataStore {
         "sss.mail.ru",
         "uuu.mail.ru"
     ]
+    
+    private init() {}
 }
 

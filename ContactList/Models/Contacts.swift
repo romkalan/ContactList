@@ -20,27 +20,29 @@ struct Person: Equatable {
     }
     
     static func getPersons() -> [Person] {
-        let data = DataStore()
         var persons: [Person] = []
         
-        for _ in 1...data.names.count {
-            let person = Person(
-                name: getRandomElement(from: data.names),
-                surname: getRandomElement(from: data.surnames),
-                phone: getRandomElement(from: data.phones),
-                email: getRandomElement(from: data.emails)
-            )
-            persons.append(person)
-
-            data.names.removeAll { $0.hasPrefix(person.name) }
-            data.surnames.removeAll { $0.hasPrefix(person.surname) }
-            data.phones.removeAll { $0.hasPrefix(person.phone) }
-            data.emails.removeAll { $0.hasPrefix(person.email) }
-        }
+        let names = DataStore.shared.names.shuffled()
+        let surnames = DataStore.shared.surnames.shuffled()
+        let phones = DataStore.shared.phones.shuffled()
+        let emails = DataStore.shared.emails.shuffled()
         
-        func getRandomElement(from elements: [String]) -> String {
-            let randomElement = elements.randomElement()
-            return randomElement ?? ""
+        let indexCount = min(
+            names.count,
+            surnames.count,
+            phones.count,
+            emails.count
+        )
+        
+        for index in 0..<indexCount {
+            let person = Person(
+                name: names[index],
+                surname: surnames[index],
+                phone: phones[index],
+                email: emails[index]
+            )
+            
+            persons.append(person)
         }
         
         return persons
